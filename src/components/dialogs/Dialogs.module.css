@@ -1,0 +1,30 @@
+.dialogs {
+    display: grid;
+    grid-template-columns: 1fr 5fr;
+}
+
+.dialogs__sidebar {
+    padding: 10px;
+    border-right: 0.5px #282c34;
+}
+
+.dialogsList {
+
+}
+
+.dialogsList__item {
+
+}
+
+.dialogs__messages {
+    padding: 10px;
+}
+
+.messagesList {
+
+}
+
+.messagesList__item {
+
+}
+

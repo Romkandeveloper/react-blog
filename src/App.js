@@ -4,14 +4,29 @@ import './App.css';
 import Header from "./components/header/Header";
 import Sidebar from "./components/sidebar/Sidebar";
 import Profile from "./components/profile/Profile";
+import Dialogs from "./components/dialogs/Dialogs";
+import {BrowserRouter, Routes, Route} from "react-router-dom";
 
 const App = () => {
   return (
-      <section className="page">
-          <Header />
-          <Sidebar />
-          <Profile />
-      </section>
+
+      <BrowserRouter>
+          <section className="page">
+              <Header />
+              <Sidebar />
+
+              <div className="content">
+
+                  <Routes>
+                      <Route path="/" element={<Profile />} />
+                      <Route path="/profile" element={<Profile />} />
+                      <Route path="/dialogs" element={<Dialogs />} />
+                  </Routes>
+
+              </div>
+          </section>
+      </BrowserRouter>
+
   );
 }
 

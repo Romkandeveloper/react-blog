@@ -30,3 +30,7 @@
     text-align: left;
     color: #372f2b;
 }
+
+.navigation__item a.active {
+    color: brown;
+}
