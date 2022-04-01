@@ -1,5 +1,12 @@
 .profile {
+    display: flex;
+
     padding: 15px;
     color: #fff;
     background-color: #282c34;
+}
+
+.profile__form {
+    flex-grow: 1;
+    margin-left: 15px;
 }
