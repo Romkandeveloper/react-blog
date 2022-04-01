@@ -1,3 +1,5 @@
+import {renderDom} from "../render";
+
 let state = {
     profilePage: {
         posts: [
@@ -14,6 +16,15 @@ let state = {
     messagesPage: {
 
     }
+}
+
+export let addPostToState = (postTitle, postDescription) => {
+    state.profilePage.posts.push({
+        title: postTitle,
+        description: postDescription
+    })
+
+    renderDom(state);
 }
 
 export default state;

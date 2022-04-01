@@ -11,7 +11,7 @@ const Profile = (props) => {
               <Posts state={props.data.posts} />
           </div>
           <div className={style.profile__form}>
-              <Form />
+              <Form addPost={props.addPost} />
           </div>
       </section>
   );

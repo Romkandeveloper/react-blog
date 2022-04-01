@@ -4,8 +4,6 @@ import Post from './post/Post';
 
 const Posts = (props) => {
 
-    console.log(props.state);
-
   let posts = props.state.map(item => {
      return <Post post={item} />
   });
