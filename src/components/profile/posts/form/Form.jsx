@@ -1,6 +1,8 @@
 import React from 'react';
 import style from './Form.module.css';
 
+import {addPostToStateCreator, updateFormInputCreator, updateFormTextAreaCreator} from "../../../../redux/state";
+
 const Form = (props) => {
 
     let postTitle = React.createRef();
@@ -12,26 +14,15 @@ const Form = (props) => {
             return;
         }
 
-        props.dispatch({
-            type: 'ADD-POST-TO-STATE',
-            postTitle: postTitle.current.value,
-            postDescription: postDescription.current.value
-            },
-        );
+        props.dispatch(addPostToStateCreator(postTitle.current.value, postDescription.current.value));
     }
 
     let inputChange = () => {
-        props.dispatch({
-           type: 'UPDATE-FORM-INPUT',
-           value: postTitle.current.value,
-        });
+        props.dispatch(updateFormInputCreator(postTitle.current.value));
     }
 
     let textAreaChange = () => {
-        props.dispatch({
-            type: 'UPDATE-FORM-TEXTAREA',
-            value: postDescription.current.value,
-        });
+        props.dispatch(updateFormTextAreaCreator(postDescription.current.value));
     }
 
     return (

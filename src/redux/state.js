@@ -1,3 +1,7 @@
+const ADD_POST_TO_STATE = 'ADD-POST-TO-STATE';
+const UPDATE_FORM_INPUT = 'UPDATE-FORM-INPUT';
+const UPDATE_FORM_TEXTAREA = 'UPDATE-FORM-TEXTAREA';
+
 let store = {
     _state: {
         profilePage: {
@@ -18,7 +22,7 @@ let store = {
 
             form: {
                 inputValue: '',
-                textAreaValue: '',Y
+                textAreaValue: '',
             }
         },
         messagesPage: {
@@ -64,14 +68,37 @@ let store = {
     },
 
     dispatch (action) {
-        if (action.type === 'ADD-POST-TO-STATE') {
+        if (action.type === ADD_POST_TO_STATE) {
             this._addPostToState(action.postTitle, action.postDescription);
-        }else if (action.type === 'UPDATE-FORM-INPUT') {
+        }else if (action.type === UPDATE_FORM_INPUT) {
             this._updateFormInput (action.value);
-        }else if (action.type === 'UPDATE-FORM-TEXTAREA') {
+        }else if (action.type === UPDATE_FORM_TEXTAREA) {
             this._updateFormTextArea (action.value);
         }
     },
 }
+
+export const addPostToStateCreator = (postTitle, postDescription) => {
+    return {
+        type: ADD_POST_TO_STATE,
+        postTitle: postTitle,
+        postDescription: postDescription
+    }
+}
+
+export const updateFormInputCreator = (value) => {
+    return {
+        type: UPDATE_FORM_INPUT,
+        value: value
+    }
+}
+
+export const updateFormTextAreaCreator = (value) => {
+    return {
+        type: UPDATE_FORM_TEXTAREA,
+        value: value
+    }
+}
+
 
 export default store;
