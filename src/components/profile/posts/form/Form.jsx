@@ -1,7 +1,7 @@
 import React from 'react';
 import style from './Form.module.css';
 
-import {addPostToStateCreator, updateFormInputCreator, updateFormTextAreaCreator} from "../../../../redux/state";
+import {addPostToStateCreator, updateFormInputCreator, updateFormTextAreaCreator} from "../../../../redux/reducers/profile-reducer";
 
 const Form = (props) => {
 
