@@ -2,7 +2,29 @@ const ADD_POST_TO_STATE = 'ADD-POST-TO-STATE';
 const UPDATE_FORM_INPUT = 'UPDATE-FORM-INPUT';
 const UPDATE_FORM_TEXTAREA = 'UPDATE-FORM-TEXTAREA';
 
-const profileReducer = (action, state) => {
+const initialState =  {
+        posts: [
+            {
+                title: '4 Natural Ways To Have Young Skin',
+                description: 'Lorem ipsum dolor sit amet, to consectetur adipi scing elit. Nulla vehicula lorem and lacus. Vestibulum vitae mauris lorem ipsum doar.',
+            },
+            {
+                title: 'Как избавиться от прыщей?',
+                description: 'Хз, попробуй помыться',
+            },
+            {
+                title: 'I`ll learn React',
+                description: 'You will do this',
+            },
+        ],
+
+        form: {
+            inputValue: '',
+            textAreaValue: '',
+        }
+}
+
+const profileReducer = (state = initialState, action) => {
 
     switch (action.type) {
         case ADD_POST_TO_STATE:
