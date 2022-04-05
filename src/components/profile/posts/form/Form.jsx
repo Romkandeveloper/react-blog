@@ -1,8 +1,6 @@
 import React from 'react';
 import style from './Form.module.css';
 
-import {addPostToStateCreator, updateFormInputCreator, updateFormTextAreaCreator} from "../../../../redux/reducers/profile-reducer";
-
 const Form = (props) => {
 
     let postTitle = React.createRef();
@@ -14,34 +12,34 @@ const Form = (props) => {
             return;
         }
 
-        props.dispatch(addPostToStateCreator(postTitle.current.value, postDescription.current.value));
+        props.addPostToState(postTitle.current.value, postDescription.current.value);
     }
 
     let inputChange = () => {
-        props.dispatch(updateFormInputCreator(postTitle.current.value));
+        props.inputChangeState(postTitle.current.value);
     }
 
     let textAreaChange = () => {
-        props.dispatch(updateFormTextAreaCreator(postDescription.current.value));
+        props.textAreaChangeState(postDescription.current.value);
     }
 
     return (
         <form className={style.form}>
             <input className={style.form__input}
                    placeholder="Введите название"
-                   value={props.state.inputValue}
+                   value={props.inputValueState}
                    onChange={inputChange}
                    ref={postTitle}
             />
             <textarea className={style.form__text}
                       placeholder="Введите текст"
-                      value={props.state.textAreaValue}
+                      value={props.textAreaValueState}
                       onChange={textAreaChange}
                       ref={postDescription}
             ></textarea>
             <button type="button"
                     className={style.form__btn}
-                    onClick={ addPost }
+                    onClick={addPost}
             >Опубликовать</button>
         </form>
     )

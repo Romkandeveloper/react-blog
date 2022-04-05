@@ -1,7 +1,7 @@
 import React from 'react';
 import style from './Profile.module.css';
 import Posts from './posts/Posts';
-import Form from  './posts/form/Form';
+import FormContainer from  './posts/form/FormContainer';
 
 const Profile = (props) => {
 
@@ -11,7 +11,7 @@ const Profile = (props) => {
               <Posts state={props.data.posts} />
           </div>
           <div className={style.profile__form}>
-              <Form state={props.data.form} dispatch={props.dispatch} />
+              <FormContainer state={props.data.form} dispatch={props.dispatch} />
           </div>
       </section>
   );
