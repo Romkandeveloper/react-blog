@@ -4,10 +4,13 @@ import reportWebVitals from './reportWebVitals'
 import store from "./redux/redux-store";
 import './index.css';
 import App from './App';
+import { Provider } from './redux/store-context';
 
 let renderDom = (store) => {
     ReactDOM.render(
-        <App appState={store.getState()} dispatch={store.dispatch.bind(store)} />,
+        <Provider store={store}>
+            <App />
+        </Provider>,
         document.getElementById('root')
     );
 }
