@@ -2,29 +2,30 @@ import React from 'react';
 
 import {addPostToStateCreator, updateFormInputCreator, updateFormTextAreaCreator} from "../../../../redux/reducers/profile-reducer";
 import Form from "./Form";
+import {connect} from "react-redux";
 
-const FormContainer = (props) => {
+const mapStateToProps = (state) => {
 
-    let addPost = (inputValue, descriptionValue) => {
-        props.dispatch(addPostToStateCreator(inputValue, descriptionValue));
+    return {
+        inputValueState: state.profilePage.form.inputValue,
+        inputAreaValueState: state.profilePage.form.textAreaValue,
     }
+}
 
-    let inputChange = (value) => {
-        props.dispatch(updateFormInputCreator(value));
+const mapDispatchToProps = (dispatch) => {
+    return {
+        addPost: (inputValue, descriptionValue) => {
+            dispatch(addPostToStateCreator(inputValue, descriptionValue));
+        },
+        inputChange: (value) => {
+            dispatch(updateFormInputCreator(value));
+        },
+        textAreaChange: (value) => {
+            dispatch(updateFormTextAreaCreator(value));
+        }
     }
+}
 
-    let textAreaChange = (value) => {
-        props.dispatch(updateFormTextAreaCreator(value));
-    }
-
-    return (
-        <Form addPostToState={addPost}
-              inputChangeState={inputChange}
-              textAreaChangeState={textAreaChange}
-              inputValueState={props.state.inputValue}
-              textAreaValueState={props.state.inputValue}
-        />
-    )
-};
+const FormContainer = connect(mapStateToProps, mapDispatchToProps)(Form);
 
 export default FormContainer;

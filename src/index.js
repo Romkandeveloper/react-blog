@@ -4,22 +4,15 @@ import reportWebVitals from './reportWebVitals'
 import store from "./redux/redux-store";
 import './index.css';
 import App from './App';
-import { Provider } from './redux/store-context';
+import { Provider } from "react-redux";
 
-let renderDom = (store) => {
-    ReactDOM.render(
-        <Provider store={store}>
-            <App />
-        </Provider>,
-        document.getElementById('root')
-    );
-}
+ReactDOM.render(
+    <Provider store={store}>
+        <App/>
+    </Provider>,
+    document.getElementById('root')
+);
 
-renderDom(store);
-
-store.subscribe(() => {
-    renderDom(store);
-});
 
 // If you want to start measuring performance in your app, pass a function
 // to log results (for example: reportWebVitals(console.log))

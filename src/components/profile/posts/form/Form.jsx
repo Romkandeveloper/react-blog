@@ -12,15 +12,15 @@ const Form = (props) => {
             return;
         }
 
-        props.addPostToState(postTitle.current.value, postDescription.current.value);
+        props.addPost(postTitle.current.value, postDescription.current.value);
     }
 
     let inputChange = () => {
-        props.inputChangeState(postTitle.current.value);
+        props.inputChange(postTitle.current.value);
     }
 
     let textAreaChange = () => {
-        props.textAreaChangeState(postDescription.current.value);
+        props.textAreaChange(postDescription.current.value);
     }
 
     return (
@@ -33,7 +33,7 @@ const Form = (props) => {
             />
             <textarea className={style.form__text}
                       placeholder="Введите текст"
-                      value={props.textAreaValueState}
+                      value={props.inputAreaValueState}
                       onChange={textAreaChange}
                       ref={postDescription}
             ></textarea>
