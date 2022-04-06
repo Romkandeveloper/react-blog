@@ -28,19 +28,36 @@ const profileReducer = (state = initialState, action) => {
 
     switch (action.type) {
         case ADD_POST_TO_STATE:
-            state.posts.push({
-                title: action.postTitle,
-                description: action.postDescription
-            });
-            state.form.inputValue = '';
-            state.form.textAreaValue = '';
-            return state;
+            return {
+                ...state,
+
+                posts: [...state.posts, {
+                    title: action.postTitle,
+                    description: action.postDescription
+                }],
+                form: {
+                    inputValue : '',
+                    textAreaValue: '',
+                }
+            };
         case UPDATE_FORM_INPUT:
-            state.form.inputValue = action.newValue;
-            return state;
+            return {
+                ...state,
+
+                form: {
+                    ...state.form,
+                    inputValue: action.newValue,
+                }
+            };
         case UPDATE_FORM_TEXTAREA:
-            state.form.textAreaValue = action.newValue;
-            return state;
+            return {
+                ...state,
+
+                form: {
+                    ...state.form,
+                    textAreaValue: action.newValue,
+                }
+            };
         default:
             return state;
     }
